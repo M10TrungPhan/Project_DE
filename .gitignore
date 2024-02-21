@@ -1,0 +1,5 @@
+01-docker-teraform/2_docker_sql/ny_taxi_postgres_data
+.vscode
+01-docker-teraform/2_docker_sql/yellow_tripdata_2021-01.parquet
+# *yellow_tripdata_2021-01.parquet
+# *ny_taxi_postgres_data

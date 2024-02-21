@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: ny_taxi
+    volumes:
+      - E:/TrungPhanADVN/Code/Project_DE/Project_DE/01-docker-teraform/2_docker_sql/ny_taxi_postgres_data/:/var/lib/postgresql/data
+    # healthcheck:
+    #   test: ["CMD", "pg_isready", "-U", "ny_taxi"]
+    #   interval: 5s
+    #   retries: 5
+    ports:
+      - 5432:5432
+    restart: always
+
