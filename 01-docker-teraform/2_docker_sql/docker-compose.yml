@@ -1,5 +1,10 @@
+networks:
+  pg-network:
+
+    
+
 services:
-  postgres:
+  pg-database:
     image: postgres:13
     environment:
       POSTGRES_USER: root
@@ -14,4 +19,21 @@ services:
     ports:
       - 5432:5432
     restart: always
+    networks:
+      - pg-network
 
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root 
+    ports:
+      - 8080:80
+    networks:
+      - pg-network
+
+# docker run -it \
+#   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+#   -e PGADMIN_DEFAULT_PASSWORD="root" \
+#   -p 8080:80 \
+#   dpage/pgadmin4  
