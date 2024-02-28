@@ -4,5 +4,7 @@
 01-docker-teraform/2_docker_sql/yellow_tripdata_2021-01.csv
 01-docker-teraform/2_docker_sql/head.csv
 01-docker-teraform/2_docker_sql/taxi+_zone_lookup.csv
+01-docker-teraform/2_docker_sql/output.csv
+01-docker-teraform/2_docker_sql/output.parquet
 # *yellow_tripdata_2021-01.parquet
 # *ny_taxi_postgres_data

@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: ny_taxi
     volumes:
-      - D:/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/ny_taxi_postgres_data/:/var/lib/postgresql/data
+      - D:/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/ny_taxi_postgres_data_2/:/var/lib/postgresql/data
     # healthcheck:
     #   test: ["CMD", "pg_isready", "-U", "ny_taxi"]
     #   interval: 5s
