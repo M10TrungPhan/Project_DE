@@ -1,8 +1,3 @@
-networks:
-  pg-network:
-
-    
-
 services:
   pg-database:
     image: postgres:13
@@ -11,7 +6,8 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: ny_taxi
     volumes:
-      - D:/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/ny_taxi_postgres_data_2/:/var/lib/postgresql/data
+      - D:/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/ny_taxi_postgres_data/:/var/lib/postgresql/data
+      # - /mnt/d/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/data/:/var/lib/postgresql/data
     # healthcheck:
     #   test: ["CMD", "pg_isready", "-U", "ny_taxi"]
     #   interval: 5s
@@ -19,9 +15,6 @@ services:
     ports:
       - 5432:5432
     restart: always
-    networks:
-      - pg-network
-
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -29,9 +22,20 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root 
     ports:
       - 8080:80
-    networks:
-      - pg-network
 
+
+  # ny_ingest:
+  #   image: taxi_ingest:v001
+  #   environment:
+  #     username: root
+  #     password: root
+  #     host: pg-database
+  #     port: 5432
+  #     db: ny_taxi
+  #     table_name: yellow_taxi_data
+  #     url: "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet"
+  #   networks:
+  #     - pg-network
 # docker run -it \
 #   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
 #   -e PGADMIN_DEFAULT_PASSWORD="root" \

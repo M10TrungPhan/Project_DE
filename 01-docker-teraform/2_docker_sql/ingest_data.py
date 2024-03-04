@@ -33,7 +33,7 @@ def main(params):
     df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
     print(pd.io.sql.get_schema(df, name='yellow_taxi_data'))
 
-    engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
+    
 
     df_iter = pd.read_csv(csv_name,iterator=True, chunksize=100000)
     df = next(df_iter)
