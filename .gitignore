@@ -6,5 +6,15 @@
 01-docker-teraform/2_docker_sql/taxi+_zone_lookup.csv
 01-docker-teraform/2_docker_sql/output.csv
 01-docker-teraform/2_docker_sql/output.parquet
+
+keys/
+../../*.teraform
+*.teraform
+01-docker-teraform/2_docker_sql/.terraform.lock.hcl
+01-docker-teraform/2_docker_sql/.terraform/
+01-docker-teraform/2_docker_sql/terraform.tfstate
+01-docker-teraform/2_docker_sql/terraform.tfstate.backup
+# *teraform
+
 # *yellow_tripdata_2021-01.parquet
 # *ny_taxi_postgres_data

@@ -7,7 +7,7 @@ services:
       POSTGRES_DB: ny_taxi
     volumes:
       - D:/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/ny_taxi_postgres_data/:/var/lib/postgresql/data
-      # - /mnt/d/coding/project/project_study/Project_DE/01-docker-teraform/2_docker_sql/data/:/var/lib/postgresql/data
+      # - dtc_postgres_volumn:/var/lib/postgresql/data
     # healthcheck:
     #   test: ["CMD", "pg_isready", "-U", "ny_taxi"]
     #   interval: 5s
@@ -23,6 +23,9 @@ services:
     ports:
       - 8080:80
 
+# volumes:
+#   dtc_postgres_volumn:
+#     external: true
 
   # ny_ingest:
   #   image: taxi_ingest:v001
