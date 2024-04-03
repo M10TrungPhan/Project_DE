@@ -14,6 +14,7 @@ keys/
 01-docker-teraform/2_docker_sql/.terraform/
 01-docker-teraform/2_docker_sql/terraform.tfstate
 01-docker-teraform/2_docker_sql/terraform.tfstate.backup
+01-docker-teraform/2_docker_sql/data_raw
 # *teraform
 
 # *yellow_tripdata_2021-01.parquet
