@@ -1,4 +1,9 @@
-mage_data
-magic-zoomcamp
-personal-gcp.json
+# mage_data
+# magic-zoomcamp
+# personal-gcp.json
 titanic_clean.csv
+*.cache
+*.operation_history
+*.file_versions
+*__pycache__
+*.variables/*

@@ -1,0 +1,3 @@
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "etl_gcs"}, "timestamp": 1712679161, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "gcs_to_bigquery"}, "timestamp": 1712682458, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "etl_gcs_copy"}, "timestamp": 1712684196, "user": null}

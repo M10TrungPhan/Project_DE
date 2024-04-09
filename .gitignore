@@ -16,6 +16,8 @@ keys/
 01-docker-teraform/2_docker_sql/terraform.tfstate.backup
 01-docker-teraform/2_docker_sql/data_raw
 # *teraform
-
+project-de-pnt-53fe3ecff7b7.json
+02-orchestration/mage_tool/project-de-pnt-53fe3ecff7b7.json
 # *yellow_tripdata_2021-01.parquet
 # *ny_taxi_postgres_data
+note.txt
