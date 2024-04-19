@@ -5,7 +5,7 @@ blocks:
     file_source:
       path: data_loaders/load_api_data.py
   downstream_blocks:
-  - clean_taxi_data
+  - transform_taxi_data
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -21,54 +21,58 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: transformers/clean_taxi_data.py
+      path: transformers/transform_taxi_data.py
   downstream_blocks:
-  - taxi_to_gcs
-  - taxi_to_gcs_partioned
+  - export_taxi_to_gcs_basic
+  - taxi_to_gcs_advance_partitioned
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: clean_taxi_data
+  name: transform_taxi_data
   retry_config: null
   status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - load_api_data
-  uuid: clean_taxi_data
+  uuid: transform_taxi_data
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
+  configuration:
+    file_source:
+      path: data_exporters/export_taxi_to_gcs_basic.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: taxi_to_gcs
+  name: export_taxi_to_gcs_basic
   retry_config: null
   status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - clean_taxi_data
-  uuid: taxi_to_gcs
+  - transform_taxi_data
+  uuid: export_taxi_to_gcs_basic
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
+  configuration:
+    file_source:
+      path: data_exporters/taxi_to_gcs_advance_partitioned.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: taxi_to_gcs_partioned
+  name: taxi_to_gcs_advance_partitioned
   retry_config: null
-  status: executed
+  status: not_executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - clean_taxi_data
-  uuid: taxi_to_gcs_partioned
+  - transform_taxi_data
+  uuid: taxi_to_gcs_advance_partitioned
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

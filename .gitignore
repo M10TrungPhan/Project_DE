@@ -21,3 +21,6 @@ project-de-pnt-53fe3ecff7b7.json
 # *yellow_tripdata_2021-01.parquet
 # *ny_taxi_postgres_data
 note.txt
+02-orchestration/mage_tool/mage_data/magic-zoomcamp/pipelines/gcs_to_bigquery/.logs/*
+02-orchestration/mage_tool/mage_data/magic-zoomcamp/pipelines/*/.variables/transform_taxi_data/
+02-orchestration/mage_tool/mage_data/magic-zoomcamp/.cache/*
