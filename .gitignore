@@ -24,3 +24,5 @@ note.txt
 02-orchestration/mage_tool/mage_data/magic-zoomcamp/pipelines/gcs_to_bigquery/.logs/*
 02-orchestration/mage_tool/mage_data/magic-zoomcamp/pipelines/*/.variables/transform_taxi_data/
 02-orchestration/mage_tool/mage_data/magic-zoomcamp/.cache/*
+*.logs/*.log
+*.log
