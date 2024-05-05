@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: staging
+    database: project-de-pnt
+    schema: trip_data_pnt
+
+    tables:
+      - name: green_tripdata
+
+      - name: yellow_tripdata
