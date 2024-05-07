@@ -26,3 +26,9 @@ note.txt
 02-orchestration/mage_tool/mage_data/magic-zoomcamp/.cache/*
 *.logs/*.log
 *.log
+
+05-Batch-processing/fhvhv_tripdata_2021-01.csv
+05-Batch-processing/zones
+05-Batch-processing/taxi_zone_lookup.csv
+05-Batch-processing/head.csv
+05-Batch-processing/fhvhv
