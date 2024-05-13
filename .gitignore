@@ -32,3 +32,5 @@ note.txt
 05-Batch-processing/taxi_zone_lookup.csv
 05-Batch-processing/head.csv
 05-Batch-processing/fhvhv
+05-Batch-processing/data
+05-Batch-processing/lib
