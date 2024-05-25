@@ -1,4 +1,4 @@
-import os
+import os 
 from typing import Dict, List
 
 from confluent_kafka import Consumer
@@ -8,16 +8,16 @@ from confluent_kafka.serialization import SerializationContext, MessageField
 
 from ride_record_key import dict_to_ride_record_key
 from ride_record import dict_to_ride_record
-from settings import BOOTSTRAP_SERVERS, SCHEMA_REGISTRY_URL, \
-    RIDE_KEY_SCHEMA_PATH, RIDE_VALUE_SCHEMA_PATH, KAFKA_TOPIC
 
+from settings import *
 
 class RideAvroConsumer:
-    def __init__(self, props: Dict):
-
+    def __init__(self, props):
         # Schema Registry and Serializer-Deserializer Configurations
         key_schema_str = self.load_schema(props['schema.key'])
         value_schema_str = self.load_schema(props['schema.value'])
+        print(key_schema_str)
+        print(value_schema_str)
         schema_registry_props = {'url': props['schema_registry.url']}
         schema_registry_client = SchemaRegistryClient(schema_registry_props)
         self.avro_key_deserializer = AvroDeserializer(schema_registry_client=schema_registry_client,
@@ -39,24 +39,29 @@ class RideAvroConsumer:
             schema_str = f.read()
         return schema_str
 
+
     def consume_from_kafka(self, topics: List[str]):
         self.consumer.subscribe(topics=topics)
         while True:
             try:
-                # SIGINT can't be handled when polling, limit timeout to 1 second.
                 msg = self.consumer.poll(1.0)
                 if msg is None:
                     continue
-                key = self.avro_key_deserializer(msg.key(), SerializationContext(msg.topic(), MessageField.KEY))
-                record = self.avro_value_deserializer(msg.value(),
+                print(msg)
+                print(msg.key())
+                print(msg.value())
+                print(msg.topic())
+                key = self.avro_key_deserializer(msg.key(), 
+                                                 SerializationContext(msg.topic(), MessageField.KEY))
+                record = self.avro_value_deserializer(msg.value(), 
                                                       SerializationContext(msg.topic(), MessageField.VALUE))
+
                 if record is not None:
                     print("{}, {}".format(key, record))
             except KeyboardInterrupt:
                 break
 
         self.consumer.close()
-
 
 if __name__ == "__main__":
     config = {
@@ -67,3 +72,6 @@ if __name__ == "__main__":
     }
     avro_consumer = RideAvroConsumer(props=config)
     avro_consumer.consume_from_kafka(topics=[KAFKA_TOPIC])
+
+
+

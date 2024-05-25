@@ -9,6 +9,7 @@ class RideRecord:
         self.trip_distance = float(arr[2])
         self.payment_type = int(arr[3])
         self.total_amount = float(arr[4])
+        self.total_amount_2 = float(arr[5])
 
     @classmethod
     def from_dict(cls, d: Dict):
@@ -17,7 +18,8 @@ class RideRecord:
             d['passenger_count'],
             d['trip_distance'],
             d['payment_type'],
-            d['total_amount']
+            d['total_amount'],
+            d['total_amount_2']
         ]
         )
 
