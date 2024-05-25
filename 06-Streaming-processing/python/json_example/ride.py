@@ -1,7 +1,7 @@
 from typing import List, Dict
 from decimal import Decimal
 from datetime import datetime
-
+from settings import *
 
 class Ride:
     def __init__(self, arr: List[str]):
@@ -50,3 +50,29 @@ class Ride:
 
     def __repr__(self):
         return f'{self.__class__.__name__}: {self.__dict__}'
+
+if __name__ == "__main__":
+    import csv 
+    import json
+    # PIPELINES:
+    # READ CSV FILE -> CONVERT TO RIDE OBJECTS -> ENCODE MESSAGE (DUMPS OBJECT) 
+    # -> PRODUCE MESSAGE -> CONSUME MESSAGE -> DECODE MESSAGE (LOADS MESSAGE)
+    # -> CONVERT MESSAGE TO RIDE OBJECT FOR EASILY PROCESSING
+    
+    with open(INPUT_DATA_PATH, 'r') as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        # print(header)
+        for row in reader:
+            # print(row)
+            rides = Ride(arr=row)
+            
+            rides_dict = rides.__dict__
+            ride_process_before_produce = json.dumps(rides_dict, default=str)
+
+            ride_process_after_cosumer = json.loads(ride_process_before_produce)
+            
+            ride_object = Ride.from_dict(ride_process_after_cosumer)
+            
+
+            break

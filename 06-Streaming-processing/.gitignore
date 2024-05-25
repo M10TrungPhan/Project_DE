@@ -1,2 +1,3 @@
 week6_venv
-python/resources/
+python/resources/rides.csv
+*__pycache__*
