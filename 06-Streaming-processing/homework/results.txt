@@ -1,0 +1,14 @@
+1.
+v22.3.5 (rev 28b2443)
+2.
+TOPIC       STATUS
+test-topic  OK
+3.
+True
+4.
+0.6279866695404053s 
+Sending the messages
+
+5.
+rpk topic create green-trips
+64.3055112361908
