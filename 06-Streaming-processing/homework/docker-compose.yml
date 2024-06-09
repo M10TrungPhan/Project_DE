@@ -1,4 +1,7 @@
 version: '3.7'
+networks:
+  homework_network:
+    external: true
 services:
   # Redpanda cluster
   redpanda-1:
@@ -32,3 +35,15 @@ services:
       - 9092:9092
       - 28082:28082
       - 29092:29092
+    networks:
+      - homework_network
+  # jupyterlab:
+  #   image: jupyterlab
+  #   container_name: jupyterlab_homework
+  #   ports:
+  #     - 8888:8888
+  #   volumes:
+  #     - ./:/opt/workspace
+  #   networks:
+  #     - homework_network
+
